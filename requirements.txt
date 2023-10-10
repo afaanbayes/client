@@ -7,7 +7,6 @@ bitarray==1.2.2
 certifi==2021.10.8
 charset-normalizer==2.0.12
 cmake==3.27.4.1
-cytoolz==0.11.2
 eth-abi==2.1.1
 eth-account==0.5.7
 eth-hash==0.3.2
@@ -59,7 +58,6 @@ torch==2.0.1
 torchaudio==2.0.2
 torchvision==0.15.2
 triton==2.0.0
-typing-extensions==4.2.0
 urllib3==1.26.9
 varint==1.0.2
 web3==5.29.1
