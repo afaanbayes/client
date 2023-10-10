@@ -59,14 +59,14 @@ if __name__ == '__main__':
     print("Connected to server")
     current_port = client_socket.getsockname()[1]
     print("current port : ", current_port)
-    key='0x26615ca1a70887e89103010a4aa25853006ac3abf707eceb5c13ca11d57e273f'
+    key='0x29785f98009e1aa0bc165a9eb66bdaae7303f75933082df7dbcc5c53a222c464'
     worker = Worker( device, is_evil, topk,worker_id,key)
 
     # receive contract Address
-    # contract_address=worker.receive_data(client_socket)
+    contract_address=worker.receive_data(client_socket)
 
-    # print("Contract address : ", contract_address)
-    # worker.join_task(contract_address)
+    print("Contract address : ", contract_address)
+    worker.join_task(contract_address)
 
     print("meta : ", meta)
     # Sending Meta data

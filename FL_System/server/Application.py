@@ -135,11 +135,11 @@ class Application:
     def run(self):
         load_dotenv()
         # requesterKey=str(input("Eneter your Private Key : "))
-        # requesterKey='0x0d8de13c6faecf4520c71859489eacbed510cad1c5d59fc05cb9a64235f3b4ba'
-        # self.requester = Requester(requesterKey)
-        # contract_address=self.requester.deploy_contract()
-        # print("Contract Address:", contract_address)
-        # self.requester.init_task( self.fspath, self.num_rounds)
+        requesterKey='0x8ad3c28f7783497bd96441a0df1005d0250fdec3877870359fb854a46bf23c9d'
+        self.requester = Requester(requesterKey)
+        contract_address=self.requester.deploy_contract()
+        print("Contract Address:", contract_address)
+        self.requester.init_task( self.fspath, self.num_rounds)
         print("Task initialized")
 
         # Create a socket
@@ -169,6 +169,7 @@ class Application:
             worker_info_list.append(client_info)
 
         # Save the worker information to JSON file
+        # print("worker information",worker_info_list)
         # self.save_worker_data_to_json(worker_info_list)
         # print("Worker information saved")
 
@@ -176,24 +177,24 @@ class Application:
         print("Received all client connections")
 
 
-        # try:
-        #         for idx,client_socket in enumerate(client_sockets):
+        try:
+                for idx,client_socket in enumerate(client_sockets):
                     
-        #             print("Sending Contract Address to client:",idx+1)
-        #             self.send_data(client_socket, contract_address)
+                    print("Sending Contract Address to client:",idx+1)
+                    self.send_data(client_socket, contract_address)
 
-        # except ConnectionResetError:
-        #         # Handle the case when a client disconnects unexpectedly
-        #         print("Client", idx + 1, "disconnected.")
-        #         client_sockets.pop(idx)
+        except ConnectionResetError:
+                # Handle the case when a client disconnects unexpectedly
+                print("Client", idx + 1, "disconnected.")
+                client_sockets.pop(idx)
 
 
 
         
 
-        # self.requester.start_task()
+        self.requester.start_task()
 
-        # print("Requester Start Task")
+        print("Requester Start Task")
 
         new_port=[]        
         # Receive Meta Data
@@ -214,12 +215,12 @@ class Application:
             worker_info_list[idx]['cluster_head_port']=cluster_head
         
         # Storing worker blockchan Address
-        # for idx, client_socket in enumerate(client_sockets):
-        #     worder_addr = self.receive_data(client_socket)
-        #     self.worker_address[idx] = worder_addr
+        for idx, client_socket in enumerate(client_sockets):
+            worder_addr = self.receive_data(client_socket)
+            self.worker_address[idx] = worder_addr
 
 
-        # print("Worker Address",self.worker_address)
+        print("Worker Address",self.worker_address)
 
         # Save the updated worker information with new ports to the JSON file
         self.save_worker_data_to_json(worker_info_list)
