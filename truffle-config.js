@@ -26,9 +26,16 @@ const dotenv = require('dotenv');
 dotenv.config();
 
 // Access the mnemonic from the environment variables
-const mnemonic = process.env.MNEMONIC;
+// const mnemonic = process.env.MNEMONIC;
+
+const mnemonic ="wonder injury already urban notable inquiry vault clip front wreck beyond season"
+
+
 
 // const projectApi=process.env.PROJECTAPI;
+
+const projectApi="https://eth-sepolia.g.alchemy.com/v2/vcR0RTOHlYG_NzUSWgxuvGUfPSTSmCMC";
+
 
 // Check if the mnemonic is defined
 if (!mnemonic ) {
@@ -39,20 +46,20 @@ if (!mnemonic ) {
 
   module.exports = {
     networks: {
-      development: {
-        host: "127.0.0.1",     // Localhost (default: none)
-        port: 7545,            // Standard G port (default: none)
-        network_id: "*",       // Any network (default: none)
-      },
-  
-  
-      // sepolia: {
-      //   provider: () => new HDWalletProvider(mnemonic , projectApi),
-      //   network_id: 11155111,       // Goerli's id
-      //   confirmations: 2,    // # of confirmations to wait between deployments. (default: 0)
-      //   timeoutBlocks: 200,  // # of blocks before a deployment times out  (minimum/default: 50)
-      //   skipDryRun: true     // Skip dry run before migrations? (default: false for public nets )
+      // development: {
+      //   host: "127.0.0.1",     // Localhost (default: none)
+      //   port: 7545,            // Standard G port (default: none)
+      //   network_id: "*",       // Any network (default: none)
       // },
+  
+  
+      sepolia: {
+        provider: () => new HDWalletProvider(mnemonic , projectApi),
+        network_id: 11155111,       // Goerli's id
+        confirmations: 2,    // # of confirmations to wait between deployments. (default: 0)
+        timeoutBlocks: 200,  // # of blocks before a deployment times out  (minimum/default: 50)
+        skipDryRun: true     // Skip dry run before migrations? (default: false for public nets )
+      },
   
       // godetest: {
       //   provider: () => new HDWalletProvider(mnemonic, `https://rpctest.godechain.com`),

@@ -12,7 +12,8 @@ class Requester:
     def __init__(self, key):
         self.key = key
         load_dotenv()
-        PROJECT_API=os.getenv('PROJECT_API')
+        # PROJECT_API=os.getenv('PROJECT_API')
+        PROJECT_API="https://eth-sepolia.g.alchemy.com/v2/vcR0RTOHlYG_NzUSWgxuvGUfPSTSmCMC"
         print("PROJECT_API :",PROJECT_API)
         # init web3.py instance
         self.w3 = Web3(HTTPProvider(PROJECT_API))
