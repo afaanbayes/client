@@ -134,8 +134,8 @@ class Application:
     
     def run(self):
         load_dotenv()
-        # requesterKey=str(input("Eneter your Private Key : "))
-        requesterKey='0x8ad3c28f7783497bd96441a0df1005d0250fdec3877870359fb854a46bf23c9d'
+        requesterKey=str(input("Eneter your Private Key : "))
+        # requesterKey='0x8ad3c28f7783497bd96441a0df1005d0250fdec3877870359fb854a46bf23c9d'
         self.requester = Requester(requesterKey)
         contract_address=self.requester.deploy_contract()
         print("Contract Address:", contract_address)

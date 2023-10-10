@@ -51,7 +51,7 @@ if __name__ == '__main__':
 
     # Reuse the socket address to avoid conflicts when restarting the program
     client_socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
-    public_ip='localhost'
+    # public_ip='localhost'
     # Bind the worker's socket to the specified port
     client_socket.bind((public_ip, client_port))  # Bind to all available network interfaces
 
@@ -59,7 +59,8 @@ if __name__ == '__main__':
     print("Connected to server")
     current_port = client_socket.getsockname()[1]
     print("current port : ", current_port)
-    key='0x93628221a839ae4e9fd852c114307bfd1aada18caea7e91744ae657b404fa1e2'
+    key=str(input("Eneter your Private Key : "))
+    
     worker = Worker( device, is_evil, topk,worker_id,key)
 
     # receive contract Address
