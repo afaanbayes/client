@@ -52,7 +52,7 @@ class Requester:
 
         tx = contract_instance.functions.initializeTask(model_uri, num_rounds).buildTransaction({
             "gasPrice": self.w3.eth.gas_price, 
-            "chainId": 1337, 
+            "chainId": 11155111, 
             "from": self.account.address, 
             "value": deposit,
             'nonce': self.w3.eth.getTransactionCount(self.account.address)
@@ -70,7 +70,7 @@ class Requester:
 
         tx = self.contract_instance.functions.startTask().buildTransaction({
             "gasPrice": self.w3.eth.gas_price, 
-            "chainId": 1337, 
+            "chainId": 11155111, 
             "from": self.account.address, 
             'nonce': self.w3.eth.getTransactionCount(self.account.address)
         })
@@ -88,7 +88,7 @@ class Requester:
 
         tx = self.contract_instance.functions.nextRound().buildTransaction({
             "gasPrice": self.w3.eth.gas_price, 
-            "chainId": 1337, 
+            "chainId": 11155111, 
             "from": self.account.address, 
             'nonce': self.w3.eth.getTransactionCount(self.account.address)
         })
@@ -208,7 +208,7 @@ class Requester:
 
             tx = self.contract_instance.functions.penalizeWorker(worker_address).buildTransaction({
                 "gasPrice": self.w3.eth.gas_price,
-                "chainId": 1337,
+                "chainId": 11155111,
                 "from": self.account.address,
                 "value": penalty_ether,
                 'nonce': self.w3.eth.getTransactionCount(self.account.address)
@@ -233,7 +233,7 @@ class Requester:
             # Refund the worker's deposit amount
             tx = self.contract_instance.functions.refundWorker(worker_address).buildTransaction({
                 "gasPrice": self.w3.eth.gas_price,
-                "chainId": 1337,
+                "chainId": 11155111,
                 "from": self.account.address,
                 'nonce': self.w3.eth.getTransactionCount(self.account.address)
             })
@@ -247,7 +247,7 @@ class Requester:
 
         tx = self.contract_instance.functions.submitRoundTopK(top_k).buildTransaction({
             "gasPrice": self.w3.eth.gas_price, 
-            "chainId": 1337, 
+            "chainId": 11155111, 
             "from": self.account.address, 
             'nonce': self.w3.eth.getTransactionCount(self.account.address)
         })
@@ -261,7 +261,7 @@ class Requester:
 
         tx = self.contract_instance.functions.distributeRewards().buildTransaction({
             "gasPrice": self.w3.eth.gas_price, 
-            "chainId": 1337, 
+            "chainId": 11155111, 
             "from": self.account.address, 
             'nonce': self.w3.eth.getTransactionCount(self.account.address)
         })

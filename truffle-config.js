@@ -26,9 +26,8 @@ const dotenv = require('dotenv');
 dotenv.config();
 
 // Access the mnemonic from the environment variables
-// const mnemonic = process.env.MNEMONIC;
+const mnemonic = process.env.MNEMONIC;
 
-const mnemonic ="wonder injury already urban notable inquiry vault clip front wreck beyond season"
 
 
 
